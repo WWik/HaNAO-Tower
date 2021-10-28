@@ -2,20 +2,20 @@ from naoqi import ALBroker
 from naoqi import ALProxy
 
 from HanoiGameState import USRHanoiGameState
-from TowerOfHanoi.GameState import GameState
 
 import time, sys
 import numpy as np
 import yaml
 
 from planner import find_optimal_path
-
-from  pyddl_hanoi import hanoiv3 
+from pyddl_hanoi import hanoiv3 
 
 
 ############### DEBUG ?
+
 try : DEBUG = sys.argv[2]
 except: DEBUG = False
+
 ############### INIT NAO
 
 robot_ip = sys.argv[1]
@@ -51,10 +51,7 @@ pole_names = {
     "finish": "the pole on my right"    
 }
 
-########### INIT STRINGS CHE DEVE DI NAO
-
-with open("hanoi_config_v2.yaml", 'r') as stream:
-    config = yaml.load(stream)
+########### INIT STRINGS CHE DEVE DIRE NAO
 
 with open("strings.yaml", "r") as stream:
     strings = yaml.load(stream)
@@ -72,15 +69,16 @@ def analyze(step):
 
 ###### MAIN
 
-with USRHanoiGameState("USRHanoiGameState2", config) as HanoiGameState:
+with USRHanoiGameState("USRHanoiGameState2", None) as HanoiGameState: 
     try:
         posture.goToPosture("Sit", 1.0)
         finish=0
         dischi=HanoiGameState.get_disks()
+        tts.say("^start('tower_of_hanoi/Wave') Hi! ^wait('tower_of_hanoi/Wave')")
+        tts.say("^start(tower_of_hanoi/Wave) Hi! ^wait(tower_of_hanoi/Wave)")
+
         if DEBUG == False:
             
-            tts.say("^start('tower_of_hanoi/Wave') Hi! ^wait('tower_of_hanoi/Wave')")
-            tts.say("^start(tower_of_hanoi/Wave) Hi! ^wait(tower_of_hanoi/Wave)")
             time.sleep(1)
             tts.say(select_line("start").format(anim="tower_of_hanoi/Wave",num=dischi))
             tts.say(select_line("explanation"))
@@ -132,6 +130,7 @@ with USRHanoiGameState("USRHanoiGameState2", config) as HanoiGameState:
             time.sleep(2)
         else:
             print("Oh no!")
+
     #### STRIPS ####
         tts.say("Now let's solve this game with STRIPS Algorithm")
         time.sleep(1.5)

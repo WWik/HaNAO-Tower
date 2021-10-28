@@ -1,23 +1,28 @@
-import numpy as np
 from TowerOfHanoi.GameState import GameState
 
+#################################################### BREADTH FIRST
+
+
 def get_possible_moves(game_state): 
-    # for each pillar, check with disk is on top and if it can be moved
-    # to either of the other two pillars
+    # Per ogni pilastro verifica chi e' al top e se puo' essere spostato altrove
+
     possible_moves = list()
     dischi=game_state.get_disks()
     # print("Number of disks: ",dischi)
     disk_on_top = [10, 10, 10, 10]
+
     for disk, pillar in enumerate(game_state.array):
         if disk < disk_on_top[pillar]:
             disk_on_top[pillar] = disk
 
     for pillar, disk in enumerate(disk_on_top):
-        if disk == 10:
+        if disk == 10: # e' l'indice 0
             continue
 
         pole_name = game_state.pole_names[pillar]
         disk_name = game_state.disk_names[disk]
+
+#### MOVIMENTI
 
         if pole_name == "start":
             if disk_on_top[2] > disk:
@@ -58,8 +63,8 @@ def get_possible_moves(game_state):
 
     return possible_moves
 
-def find_optimal_path(state): ## sono arrivato qua, state e' un gamestate(5) con i blocchi settati su start
-    counter = 0
+#### PATH OTTIMALE
+def find_optimal_path(state): 
     element = (state, list())
 
     visited = list()
@@ -68,7 +73,8 @@ def find_optimal_path(state): ## sono arrivato qua, state e' un gamestate(5) con
 
     while queue:
         state, path = queue.pop(0)
-        if state.is_goal():
+        if state.is_goal(): 
+            # Path con meno movimenti è anche il più corto quindi è ottimale
             optimal_path = path
             break
         else:
@@ -82,15 +88,19 @@ def find_optimal_path(state): ## sono arrivato qua, state e' un gamestate(5) con
                 element = (next_state, next_path)
                 queue.append(element)
     else:
+        # Coda finita senza soluzioni
         print("No path could be found.")
         optimal_path = None
 
     return optimal_path
 
+#### AZIONE OTTIMALE
 def optimal_action(game_state):
-    # action format: disk_idx from_pillar to_pillar
+    # formato   IDX_DISCO DA A
     path = find_optimal_path(game_state)
     return path[0]
+
+#### DEBUG
 
 if __name__ == "__main__":
     foo = GameState(4)
@@ -101,6 +111,6 @@ if __name__ == "__main__":
     # foo.move("purple", "start")
 
     # print(foo.array)
-    # path = find_optimal_path(foo) #YEEEEEEEEEEEEEEE
+    # path = find_optimal_path(foo) 
     # print(path)
     print(optimal_action(foo))

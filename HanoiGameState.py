@@ -1,32 +1,9 @@
 from naoqi import ALProxy, ALModule
-import time
-import numpy as np
 import json
-
 from TowerOfHanoi.GameState import GameState
-import yaml
-
-# def detect_disks(self):
-#         data=None
-#         with open("data.json") as f:
-#             data=json.load(f)
-#         game_state = GameState(5)
-#         for disk in data:
-#             pole=data[disk]
-#             print("Disk {} is in pole \"{}\"".format(disk,pole))
-#             game_state.move(disk,pole)
-#         return game_state
-
-
-# config to determine on which pole a is
-
-
 
 class USRHanoiGameState(ALModule):
-    """ A module to detect the current gamestate in a game
-    of Tower of Hanoi between the NAO and a human.
-
-    """
+    
     global num_disks
 
     try:
@@ -38,7 +15,6 @@ class USRHanoiGameState(ALModule):
         ALModule.__init__(self, name)
         self.name = name
         self.tts = ALProxy("ALTextToSpeech")
-        # self.camera = ALProxy("ALVideoDevice")
         self.memory = ALProxy("ALMemory")
         self.posture = ALProxy("ALRobotPosture")
         
@@ -49,6 +25,7 @@ class USRHanoiGameState(ALModule):
                         "green":"start",
                         "blue":"start",
                         "purple":"start"})
+                        
         new_parametri=dict()
         for i in range(num_disks):
             new_parametri[disk_names[i]]=parametri[disk_names[i]]
@@ -74,7 +51,6 @@ class USRHanoiGameState(ALModule):
         if not self.posture._isRobotInPosture("USRLookAtTower", 0.02, 0.02)[0]:
             self.posture.goToPosture("USRLookAtTower", 1.0)
 
-        # state = GameState()
         state = self.detect_disks()
 
         print("The current gamestate is:" + str(state.array))
@@ -92,6 +68,3 @@ class USRHanoiGameState(ALModule):
         return game_state
 
 
-
-if __name__ == "__main__":
-    print(detect_disks(None))

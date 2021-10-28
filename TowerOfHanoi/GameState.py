@@ -3,9 +3,11 @@ import json
 from Disk import Disk
 
 class GameState(object):
-    pole_names = ["None", "start", "middle", "finish"]
+    pole_names = ["None", "start", "middle", "finish"] # PILASTRI CON INDICI 1,2,3 PER COMODITA'
     num_disk_positions = len(pole_names)
     global dischi
+
+#### INIT
 
     def __init__(self, num_disks, number=None):
         self.disks = list()
@@ -23,13 +25,7 @@ class GameState(object):
         new_parametri=dict()
         for i in range(num_disks):
             new_parametri[disk_names[i]]=parametri[disk_names[i]]
-        # try:
-        #     with open("data.json","w") as f:
-        #         json.dump(new_parametri,f)
-        # except:
-        #     pass
-
-
+       
         for idx in range(num_disks): #0...num-1
             disk = Disk()
             disk_name = disk_names[idx] # disk_names[0]
@@ -38,6 +34,8 @@ class GameState(object):
             self.disks_by_name[disk_names[idx]] = disk
             self.disk_names.append(disk_name)
             # print(self.disks)
+
+#### STATO GIA ESISTENTE
 
         if number is not None:
             pos = self.num_disk_positions
@@ -67,6 +65,8 @@ class GameState(object):
     def __repr__(self):
         return "Tower of Hanoi GameState ID {id}".format(id=self.number)
 
+#### ID DELLO STATO
+
     @property
     def number(self):
         pos = self.num_disk_positions
@@ -79,12 +79,13 @@ class GameState(object):
 
         return number
 
+#### SPOSTA DISCO
+
     def move(self, disk_name, pole_name):
         disk = self.disks_by_name[disk_name]
         pole = self.pole_names.index(pole_name)
 
         disk.pole = pole
-        import json
         with open("data.json") as f:
             data=json.load(f)
         data[disk_name]=self.pole_names[pole]
@@ -92,6 +93,7 @@ class GameState(object):
             json.dump(data,f)
         # print(data)
         
+#### IN CASO DI ERRORI NEI MODULI
 
     def has_missing_disk(self):
         for disk_name, disk in self.disks_by_name.items():
@@ -99,6 +101,8 @@ class GameState(object):
                 return (True, disk_name)
         else:
             return (False, None)
+
+#### GOAL E START
 
     def is_goal(self):
         for disk in self.disks:
@@ -114,20 +118,18 @@ class GameState(object):
 
         return True
 
+#### DEBUG
+
 if __name__ == "__main__":
     foo = GameState(3)
     foo.move("orange", "start")
     foo.move("yellow", "finish")
     foo.move("green", "start")
-    # foo.move("blue", "middle")
-    # foo.move("purple", "finish")
 
     goal_state = GameState(3)
     goal_state.move("orange","finish")
     goal_state.move("yellow","finish")
     goal_state.move("green","finish")
-    # goal_state.move("blue","finish")
-    # goal_state.move("purple","finish")
 
     starting_state = GameState(5)
     starting_state.move("orange","start")

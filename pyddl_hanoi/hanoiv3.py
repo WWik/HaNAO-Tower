@@ -1,6 +1,8 @@
 from __future__ import print_function
 from pyddl import Domain, Problem, Action, planner, neg 
 
+#################################################### STRIPS
+
 dischi=['start','middle','finish','orange','yellow','green','blue','purple']
 
 global_domain=Domain((
