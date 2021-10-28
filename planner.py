@@ -74,7 +74,7 @@ def find_optimal_path(state):
     while queue:
         state, path = queue.pop(0)
         if state.is_goal(): 
-            # Path con meno movimenti è anche il più corto quindi è ottimale
+            # Path con meno movimenti e' anche il piu' corto quindi e' ottimale
             optimal_path = path
             break
         else:

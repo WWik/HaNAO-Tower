@@ -149,6 +149,8 @@ with USRHanoiGameState("USRHanoiGameState2", None) as HanoiGameState:
         if finish==2:
             tts.say(select_line("compare").format(bfa=bfa_duration,sa=strips_duration))
             time.sleep(15)
+            tts.say(select_line("compare_2").format(moves1=number_of_moves,moves2=len(mosse)))
+            time.sleep(15)
             tts.say(select_line("about").format(anim="tower_of_hanoi/Wave"))
             time.sleep(1)
             tts.say("^start(tower_of_hanoi/Wave) Bye! Hope you come again to play! ^wait(tower_of_hanoi/Wave)")
