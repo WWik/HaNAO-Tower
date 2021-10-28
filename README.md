@@ -18,7 +18,7 @@ After this step, you can start the module via
 
     play_game.py <robot_ip>
  
-### Algorithm supports (currently) from 1 to 5 disks on the first game's pole
+#### Algorithm supports (currently) from 1 to 5 disks on the first game's pole
 
-### If you have any questions or encounter any trouble, feel free to create an issue on this GitHub.
+#### If you have any questions or encounter any trouble, feel free to create an issue on this GitHub.
 
