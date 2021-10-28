@@ -1,0 +1,11 @@
+Metadata-Version: 1.1
+Name: pyddl
+Version: 1.0
+Summary: STRIPS planner with PDDL-like problem specification in Python
+Home-page: https://github.com/garydoranjr/pyddl.git
+Author: Gary Doran
+Author-email: gary.doran@case.edu
+License: MIT (see the LICENSE file)
+Description: UNKNOWN
+Platform: unix
+Provides: pyddl

@@ -1,0 +1,28 @@
+language: EN_US
+conversation:
+  think:
+    - ["^start({anim}) Hmmmmmmmmmm ^wait({anim})",3]
+  start:
+    - ["^start({anim}) I am NAO. ^wait({anim}) We will play the Tower of Hanoi with {num} disks. Let's have fun!", 10]
+  order_disks:
+    - ["Please put the disks into the starting position ^start({anim}) ^wait({anim})", 10]
+  begin:
+    - ["Okay, let's start", 2]
+  ask_move:
+    - ["Please move ^start({anim1}) the {disk} disk from {from_pole} ^wait({anim1}) ^start({anim2}) to {to_pole}.^wait({anim2})", 5]
+  thank_you:
+    - ["^start({anim}) Perfect! ^wait({anim})", 3]
+  congratulations:
+    - ["Very nice! The game was completed with {num_moves} moves." , 1]
+  explanation: 
+     - ["Let me explain how the game works. \\pau=200\\
+        One player can only move one disk at a time between the poles. \\pau=400\\
+        Bigger disks are not allowed on top of smaller ones. \\pau=400\\
+        The game starts after all the disks are stacked on your left side, \\pau=200\\ ordered by size from big to small.\\pau=400\\
+        I will ask you to move the disks for me.
+        The goal is to move all the disks to the right pole.",
+        1]
+  about:
+    - ["^start({anim}) This game has been implemented by Gabriele R. and Antonio V. ^wait({anim})",10]
+  compare:
+    - ["We solved the same problem with Breadth First Algorithm in {bfa} seconds and in {sa} seconds with STRIPS Algorithm",13]

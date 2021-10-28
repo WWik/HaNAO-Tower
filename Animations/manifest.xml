@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package version="0.0.1" installOnlyAtStartup="false" uuid="tower_of_hanoi">
+ <names>
+  <name lang="en_US">Untitled</name>
+ </names>
+ <descriptions>
+  <description lang="en_US">Auxiliary files for Tower of Hanoi</description>
+ </descriptions>
+ <supportedLanguages>
+  <language>en_US</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="Thinking">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="Wave">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="PointStart">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="PointMiddle">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="PointGoal">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="Nodd">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+ <requirements>
+  <naoqiRequirement minVersion="2.1" maxVersion="2.5"/>
+  <robotRequirement model="NAO"/>
+ </requirements>
+</package>
