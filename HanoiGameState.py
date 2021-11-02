@@ -20,6 +20,7 @@ class USRHanoiGameState(ALModule):
         
         
         disk_names = ["orange", "yellow", "green", "blue", "purple"]
+        
         parametri=dict({"orange":"start",
                         "yellow":"start",
                         "green":"start",

@@ -11,21 +11,21 @@ conversation:
   ask_move:
     - ["Please move ^start({anim1}) the {disk} disk from {from_pole} ^wait({anim1}) ^start({anim2}) to {to_pole}.^wait({anim2})", 5]
   thank_you:
-    - ["^start({anim}) Perfect! ^wait({anim})", 3]
+    - ["\\pau=400\\ ^start({anim}) Perfect! ^wait({anim})", 3]
   congratulations:
-    - ["Very nice! The game was completed with {num_moves} moves." , 1]
+    - ["Very nice! The game was completed with {num_moves} moves. \\pau=400\\" , 1]
   explanation: 
      - ["Let me explain how the game works. \\pau=200\\
         One player can only move one disk at a time between the poles. \\pau=400\\
         Bigger disks are not allowed on top of smaller ones. \\pau=400\\
-        The game starts after all the disks are stacked on your left side, \\pau=200\\ ordered by size from big to small.\\pau=400\\
-        I will ask you to move the disks for me.
+        The game starts after all the disks are stacked on your left side, \\pau=800\\ ordered by size from big to small.\\pau=600\\
+        I will ask you to move the disks for me. \\pau=400\\
         The goal is to move all the disks to the right pole.",
         1]
   about:
-    - ["^start({anim}) This game has been implemented by Gabriele R. and Antonio V. ^wait({anim})",10]
+    - ["^start({anim}) This game has been implemented by Gabriele R. and Antonio V. ^wait({anim}) \\pau=400\\",10]
   compare:
-    - ["We solved the same problem with Breadth First Algorithm in {bfa} seconds and in {sa} seconds with STRIPS Algorithm",13]
+    - ["We solved the same problem with Breadth First Algorithm in {bfa} seconds and in {sa} seconds with STRIPS Algorithm \\pau=1200\\",13]
   compare_2:
-    - ["We solved the same problem with Breadth First Algorithm in {moves1} moves and in {moves2} moves with STRIPS Algorithm",13]
+    - ["We solved the same problem with Breadth First Algorithm in {moves1} moves and in {moves2} moves with STRIPS Algorithm \\pau=800\\",13]
 

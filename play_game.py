@@ -17,8 +17,9 @@ try : DEBUG = sys.argv[2]
 except: DEBUG = False
 
 ############### INIT NAO
+try : robot_ip = sys.argv[1]
+except: robot_ip = "127.0.0.1"
 
-robot_ip = sys.argv[1]
 myBroker = ALBroker("myBroker", "0.0.0.0", 0, robot_ip, 9559)
 
 memory = ALProxy("ALMemory")
@@ -74,8 +75,7 @@ with USRHanoiGameState("USRHanoiGameState2", None) as HanoiGameState:
         posture.goToPosture("Sit", 1.0)
         finish=0
         dischi=HanoiGameState.get_disks()
-        tts.say("^start('tower_of_hanoi/Wave') Hi! ^wait('tower_of_hanoi/Wave')")
-        tts.say("^start(tower_of_hanoi/Wave) Hi! ^wait(tower_of_hanoi/Wave)")
+        tts.say("\\pau=400\\ ^start(tower_of_hanoi/Wave) Hi! \\pau=600\\ ^wait(tower_of_hanoi/Wave)")
 
         if DEBUG == False:
             
@@ -148,15 +148,15 @@ with USRHanoiGameState("USRHanoiGameState2", None) as HanoiGameState:
     #### END ####
         if finish==2:
             tts.say(select_line("compare").format(bfa=bfa_duration,sa=strips_duration))
-            time.sleep(15)
+            time.sleep(2)
             tts.say(select_line("compare_2").format(moves1=number_of_moves,moves2=len(mosse)))
-            time.sleep(15)
+            time.sleep(2)
             if DEBUG : 
                 print(select_line("compare").format(bfa=bfa_duration,sa=strips_duration))
                 print(select_line("compare_2").format(moves1=number_of_moves,moves2=len(mosse)))
             tts.say(select_line("about").format(anim="tower_of_hanoi/Wave"))
             time.sleep(1)
-            tts.say("^start(tower_of_hanoi/Wave) Bye! Hope you come again to play! ^wait(tower_of_hanoi/Wave)")
+            tts.say("\\pau=400\\ ^start(tower_of_hanoi/Wave) Bye! Hope you come again to play! ^wait(tower_of_hanoi/Wave)")
             posture.goToPosture("Stand", 1.0)
 
     except KeyboardInterrupt:
