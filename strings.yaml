@@ -12,6 +12,8 @@ conversation:
     - ["Please move ^start({anim1}) the {disk} disk from {from_pole} ^wait({anim1}) ^start({anim2}) to {to_pole}.^wait({anim2})", 5]
   thank_you:
     - ["\\pau=400\\ ^start({anim}) Perfect! ^wait({anim})", 3]
+    - ["\\pau=400\\ ^start({anim}) Good job! ^wait({anim})", 3]
+    - ["\\pau=400\\ ^start({anim}) OK! ^wait({anim})", 3]
   congratulations:
     - ["Very nice! The game was completed with {num_moves} moves. \\pau=400\\" , 1]
   explanation: 
