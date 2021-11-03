@@ -25,7 +25,7 @@ conversation:
   about:
     - ["^start({anim}) This game has been implemented by Gabriele R. and Antonio V. ^wait({anim}) \\pau=400\\",10]
   compare:
-    - ["We solved the same problem with Breadth First Algorithm in {bfa} seconds and in {sa} seconds with STRIPS Algorithm \\pau=1200\\",13]
+    - ["We solved the same problem with Breadth First Algorithm in {bfa} seconds and in {sa} seconds \\pau=1200\\ with STRIPS Algorithm",13]
   compare_2:
-    - ["We solved the same problem with Breadth First Algorithm in {moves1} moves and in {moves2} moves with STRIPS Algorithm \\pau=800\\",13]
+    - ["We solved the same problem with Breadth First Algorithm in {moves1} moves and in {moves2} moves \\pau=800\\ with STRIPS Algorithm",13]
 

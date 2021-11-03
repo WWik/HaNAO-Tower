@@ -22,10 +22,7 @@ except: robot_ip = "127.0.0.1"
 
 myBroker = ALBroker("myBroker", "0.0.0.0", 0, robot_ip, 9559)
 
-memory = ALProxy("ALMemory")
-move = ALProxy("ALMotion")
 tts = ALProxy("ALAnimatedSpeech")
-
 tts.setBodyLanguageModeFromStr("enabled")
 
 posture = ALProxy("ALRobotPosture")
