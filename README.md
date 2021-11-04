@@ -9,7 +9,7 @@ You will see your NAO indicating you how to solve the Hanoi Tower with X disks (
  - Comparing the two algorithm (DONE)
 
 ## Requirements
-The project runs on python 2.7.18 and you will have to install naoqi, and numpy for it to work.
+The project runs on python 2.7.18 and you will have to install naoqi, [pyddl](https://github.com/garydoranjr/pyddl) and numpy for it to work.
 
 ## Installation
 To run this program, you have to install the animations found in the folder _Animations_ (a Choreograph project) and store the updated posture library on NAO. 
